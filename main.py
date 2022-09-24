@@ -1,3 +1,4 @@
+import os
 from functions import Aeris
 from sys import exit as end
 
@@ -10,6 +11,9 @@ while 1:
         command = Aeris().record()
         print(command)
     except:
+        if not os.path.exists("files/cache"):
+            os.makedirs("files/cache")
+            continue
         end(1)
     commands = {"відкрий браузер": Aeris().open_browser,
     "відкрити браузер": Aeris().open_browser,
